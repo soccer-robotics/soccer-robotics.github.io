@@ -50,7 +50,7 @@ html, body {
     color: rgb(0, 78, 151);
     border: 2px solid rgb(0, 78, 151);
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 20pt;
     margin-right: 10px;
     display: inline-block;
@@ -97,6 +97,7 @@ h2 {
 #member-grid div {
     background-color: rgb(228, 228, 228);
     padding: 20px;
+    border-radius: 4px;
 }
 
 #member-grid div:hover {
