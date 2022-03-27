@@ -46,6 +46,8 @@ html, body {
     font-size: 20pt;
 }
 
+
+
 .link-btn {
     color: rgb(0, 78, 151);
     border: 2px solid rgb(0, 78, 151);
@@ -56,6 +58,8 @@ html, body {
     display: inline-block;
     text-decoration: none;
     transition: all 0.2s;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.8);
 }
 
 .link-btn:hover {
@@ -66,6 +70,30 @@ html, body {
 
 #header img {
     height: 60pt;
+}
+
+@media screen and (max-width: 768px) {
+    #header {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    #header h1 {
+        font-size: 40pt;
+    }
+
+    #header img {
+        height: 40pt;
+    }
+
+    .link-btn {
+        color: rgb(0, 78, 151);
+        border: 2px solid rgb(0, 78, 151);
+        padding: 5px;
+        font-size: 15pt;
+        margin-right: 10px;
+        display: block;
+    }
 }
 
 /* SECTIONS */
@@ -87,24 +115,62 @@ h2 {
     margin: 0px;
 }
 
+h3 {
+    font-size: 18pt;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: rgb(0, 78, 151);
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    h1 {
+        font-size: 30pt;
+    }
+
+    h2 {
+        font-size: 15pt;
+    }
+
+    h3 {
+        font-size: 14pt;
+    }
+}
+
 /* MEMBERS */
 #member-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 40px;
 }
 
-#member-grid div {
-    background-color: rgb(228, 228, 228);
-    padding: 20px;
+#member-grid > div {
+    background-color: rgb(248, 248, 248);
     border-radius: 4px;
+    box-shadow: 0px 0px 0px 2px rgb(0, 78, 151);
+    transition: 0.2s all;
 }
 
-#member-grid div:hover {
-    background-color: rgb(212, 212, 212);
+#member-grid div div {
+    padding: 20px;
+    background-color: transparent;
+}
+
+#member-grid > div:hover {
+    background-color: rgb(230, 230, 230);
 }
 
 #member-grid div p {
     padding: 0px;
     margin: 0px;
+}
+
+#member-grid div img {
+    width: 100%;
+    border-radius: 4px 4px 0px 0px;
 }
