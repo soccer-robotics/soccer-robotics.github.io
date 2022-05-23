@@ -36,6 +36,13 @@ html, body {
     box-shadow: 0px 0px 100px 100px inset rgb(243, 243, 243);
 }
 
+@media screen and (max-height: 700px) {
+    #header {
+        height: auto;
+        display: block;
+    }
+}
+
 #header h1 {
     font-size: 60pt;
     margin-bottom: 0px;
