@@ -40,6 +40,7 @@ html, body {
     #header {
         height: auto;
         display: block;
+        padding-top: 10%;
     }
 }
 
@@ -214,6 +215,11 @@ h4 {
 }
 
 /* GALLERY */
+
+.img-standard {
+    width: 100%;
+    border-radius: 6px;
+}
 
 #gallery-grid {
   display: flex;
