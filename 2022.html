@@ -105,14 +105,6 @@
             <p>
                 Utilizing the OpenMV camera, the scoring goal is detected via computer vision techniques: The camera runs a threshold filter over the input image to detect all pixels within a certain (calibrated) color range. Then, it determines the locations of large patches of the color, and the coordinates of the center of the largest patch are sent to the robot via UART communication. The offense robot uses this information to decide its heading once it is in possession of the ball.
             </p><br>
-            <h2>Orbit</h2>
-            <p>
-                Orbit is the primary attack functionality, allowing the robot to make a clean and efficient curve towards the ball to kick it. Orbit is done with the mathematical function
-                
-                $$f(\theta, d) = \theta + j \cdot d \cdot \text{min}(k^\theta, 90)$$
-                
-                where $j$ and $k$ are constants determined experimentally, $\theta$ is the angle from the robot to the ball, and $d$ is the robot's distance to the ball. Essentially, the robot will head in the general direction, with an offset corresponding to the angle difference between the ball and robot heading.
-            </p><br>
             <h2>Goalie</h2>
             <p>    
                 The Goalie algorithm attempts to deflect the ball away from the goal by matching the ball's x-position. However, simply moving in the direction of the ball is inadequate as the robot will not react quickly enough if the ball has a large horizontal velocity. Therefore, the goalie calculation also takes into consideration the rate at which the ball's angle vector to the robot is changing.
