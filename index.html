@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="style-2023.css" type="text/css">
         <link rel="icon" href="assets/logo_square.png">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <title>Radian Robotics</title>
@@ -16,126 +16,43 @@
             });
         </script>
         <div id="header">
-            <h1>Radian <img src="assets/logo.png"></h1>
-            <p>Princeton High School Robocup Junior Team<br>2021-2022</p>
+            <h1><img src="assets/logo2.png"></h1>
+            <p>Princeton High School Robocup Junior Team<br>2022-2023</p>
             <div id="links">
                 <a class="link-btn" href="#overview">overview</a>
-                <a class="link-btn" href="#design">design</a>
-                <a class="link-btn" href="#strategy">strategy</a>
                 <a class="link-btn" href="#members">team</a>
                 <a class="link-btn" href="#gallery">gallery</a>
+                <a class="link-btn" href="2022.html">2022</a>
                 <a class="link-btn" href="#contact">contact</a>
             </div>
         </div>
         <div id="overview" class="section">
             <h4>01</h4>
             <h1>Overview</h1>
-            <p>Team Radian is composed of four high school students with an enthusiasm for robotics. Our
-                team members are Jieruei Chang, Shrey Khetan, Luna Shoval, and Yangwenbo (William)
-                Yao; we specialize in software, vision, mechanical and electrical, respectively. This is our first
-                year of participating in RoboCup and we did not have much prior experience with robotics
-                before. We have all learned a lot this year about programming, CAD modeling, and working
-                with a sophisticated robotics platform.
-                </p>
-            <p>We won second place in the US National Robocup Junior competition, as well as the Best Engineering Design award.</p>
+            <p>
+                Hailing from Princeton, New Jersey, our team designs, builds, and programs robots to play soccer in the national
+                Robocup Junior soccer competition. We are Jieruei Chang, Shrey Khetan, and Yangwenbo (William) Yao; specializing
+                in software, electrical, and mechanical design respectively. Last year, we won second place in the US National
+                competition, as well as the Best Engineering Design award.
+            </p>
             <!--<p>[Insert super flashy video here]</p>
             <div class="video-container">
                 <iframe width="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
             </div>-->
             <img class="img-standard" src="assets/main.jpg">
             <br><br>
-            <a class="link-btn" href="assets/paper.pdf" target="_blank">Technical Paper</a>
-            <a class="muted-btn" href="#header">back to top</a>
-        </div>
-        <div id="design" class="section">
-            <h4>02</h4>
-            <h1>Mechanical and Electrical Design</h1>
-            <p>We used the CAD software Onshape to design the various 3D-printed parts on the robot,
-                and printed them using a Prusa i3 MK3S printer. PLA was chosen for its ease of printing;
-                however this means that the printed parts are not incredibly strong and are more prone to
-                damage.
-                <br><br>
-                The printed components consist of a main chassis and sensor assembly board, which are
-                identical between the two robots. The offense robot has an additional camera mount,
-                and the defense robot has a backwardfacing ultrasound mount. The printed pieces are designed
-                in such a way that it is simple to replace or swap components between robots if necessary.
-                <br><br>
-                In our robot design, we use a single main PCB to save space, resulting in a cleaner overall
-                design. We use a Teensy, a small but powerful microcontroller, to control the robot. Each
-                robot has eight infrared sensors mounted symmetrically around the exterior perimeter of the
-                PCB in order to determine the angle to the ball. Both robots also have three line sensors
-                on the underside to avoid overstepping the field boundaries. Our goalkeeper robot contains
-                a backward-facing ultrasonic sensor, in order to maintain a constant distance in front of the
-                goal. We also installed a camera on our attacking robot in order to determine the position
-                of the goal.
-                </p>
-            <a class="muted-btn" href="#header">back to top</a>
-        </div>
-        <div id="strategy" class="section">
-            <h4>03</h4>
-            <h1>Game Strategy & Software</h1>
-            <h2>Movement</h2>
-            <p>
-                The robots use a triad of omniwheels for unconstrained lateral translation. Trigonometric equations are used to determine how quickly each of the three motors must rotate in order to move in any given direction. Rotational force can be applied simply by adding an additional constant speed to each motor.
-                <br><br>
-                To maintain a consistent orientation, the robot uses a gyroscope for angle correction. To avoid overshoot while simultaneously providing rapid and efficient error correction, a proportional-integral-derivative (PID) control system is used to determine the strength of the angle correction based on the magnitude of the difference between the desired and current angles.
-                
-                $$u(\theta) = K_p\cdot \theta + K_i\cdot \int_{0}^{t}\theta \cdot dt + K_d\cdot \frac{d\theta}{dt}$$
-                
-                where $\theta$ is the error angle and $K_p$, $K_i$ and $K_d$ are the experimentally determined proportional, integral and derivative gains respectively. The proportional term applies a corrective force that is matched by the resistive force of the derivative force (to prevent overshoot).
-            </p><br>
-            <h2>Ball Detection</h2>
-            <p>
-                Detection of the infrared ball is conducted through analyzing the outputs of eight IR sensors positioned equidistantly around the main circuit board. The data from each sensor can be interpreted as a vector whose direction is that of the sensor's orientation, and whose magnitude is the strength of the infrared signal received by that sensor. By taking the summation of all eight vectors, we can determine the precise direction in which the ball is located with the equations
-                
-                \begin{align*}
-                v_x = \sum_{j=0}^{7} m_j \cdot \text{cos}\left(\frac{\pi}{4}j\right)\\
-                   v_y = \sum_{j=0}^{7} m_j \cdot \text{sin}\left(\frac{\pi}{4}j\right)    
-                \end{align*}
-                
-                where $v_x$ and $v_y$ are the $x-$ and $y-$ coordinates of the resultant vector respectively, and $m_j$ are the magnitudes of the signal from each sensor.
-            </p><br>
-            <h2>Line Tracking</h2>
-            <p>
-                Line detection is done with a triad of line sensors attached to the underside of the robot. The line detection algorithm is extremely conservative as it is better to lose possession of the ball than to have the robot be removed from the field.
-                <br><br>
-                Currently, line detection is only run on the attacker robot, as the penalty-box lines tend to confuse the robots, and the goalie can stay inside the field boundaries relatively well using solely the readings from the ultrasonic sensor.
-            </p><br>
-            <h2>Goal Detection</h2>   
-            <p>
-                Utilizing the OpenMV camera, the scoring goal is detected via computer vision techniques: The camera runs a threshold filter over the input image to detect all pixels within a certain (calibrated) color range. Then, it determines the locations of large patches of the color, and the coordinates of the center of the largest patch are sent to the robot via UART communication. The offense robot uses this information to decide its heading once it is in possession of the ball.
-            </p><br>
-            <h2>Orbit</h2>
-            <p>
-                Orbit is the primary attack functionality, allowing the robot to make a clean and efficient curve towards the ball to kick it. Orbit is done with the mathematical function
-                
-                $$f(\theta, d) = \theta + j \cdot d \cdot \text{min}(k^\theta, 90)$$
-                
-                where $j$ and $k$ are constants determined experimentally, $\theta$ is the angle from the robot to the ball, and $d$ is the robot's distance to the ball. Essentially, the robot will head in the general direction, with an offset corresponding to the angle difference between the ball and robot heading.
-            </p><br>
-            <h2>Goalie</h2>
-            <p>    
-                The Goalie algorithm attempts to deflect the ball away from the goal by matching the ball's x-position. However, simply moving in the direction of the ball is inadequate as the robot will not react quickly enough if the ball has a large horizontal velocity. Therefore, the goalie calculation also takes into consideration the rate at which the ball's angle vector to the robot is changing.
-                <br><br>
-                To keep the goalie in front, an ultrasound sensor is used to keep a constant distance from goal. If the ultrasound detects that the robot is much farther from the goal than previously (indicating that it has crossed the threshold of the goal, it immediately moves in the reverse direction to prevent the robot from leaving the field. This is enough to stop most shots, but preventing the goalie from leaving the area directly in front of the goal allows for opponent robots to score from the sides. In the future we aim to mitigate this, perhaps with more numerous line sensors to follow the arc of the penalty box.
-            </p><br>
-            <h2>Development Tools</h2>
-            <p>
-                The software was primarily written in C++, with the computer vision code for the camera being written in MicroPython. Platformio was used to simplify development.
-                <br><br>
-                In addition, we developed a visualizer using Pygame, to facilitate debugging of the various sensors on the robot.
-            </p>
+            <!--<a class="link-btn" href="assets/paper.pdf" target="_blank">Technical Paper</a>-->
             <a class="muted-btn" href="#header">back to top</a>
         </div>
         <div id="members" class="section">
-            <h4>04</h4>
+            <h4>02</h4>
             <h1>Team Members</h1>
             <div id="member-grid">
                 <div>
                     <img src="assets/jieruei.jpg">
                     <div>
                         <h2>Jieruei Chang</h2>
-                        <h3>Technical Lead</h3>
+                        <h3>Software Lead</h3>
                         <p>I write the computer words that make the robot go to the places where it is supposed to go and not go to the places where it is not supposed to go.</p>    
                     </div>
                 </div>
@@ -143,24 +60,16 @@
                     <img src="assets/shrey.jpg">
                     <div>
                         <h2>Shrey Khetan</h2>
-                        <h3>Vision System</h3>
-                        <p>I build the camera system that allows Radian to see where it is going, which turns out to be pretty important if you want to play soccer.</p>
-                    </div>
-                </div>
-                <div>
-                    <img src="assets/luna.jpg">
-                    <div>
-                        <h2>Luna Shoval</h2>
-                        <h3>Mechanical Design</h3>
-                        <p>I help design the 3D-printed parts, which are integral to preventing the robot from being a bunch of circuit boards and wires lying on the ground.</p>
+                        <h3>Electrical Lead</h3>
+                        <p>I do the electrical design for Radian; this year, we are designing custom-built printed circuit boards for a more advanced robot.</p>
                     </div>
                 </div>
                 <div>
                     <img src="assets/william.jpg">
                     <div>
                         <h2>William Yao</h2>
-                        <h3>Electrical Design</h3>
-                        <p>I do the electrical design for Radian, which mostly means a lot of soldering. I also help with CAD modeling.</p>    
+                        <h3>Mechanical Lead</h3>
+                        <p>I help design the 3D-printed parts, which are integral to preventing the robot from being a bunch of circuit boards and wires lying on the ground.</p>    
                     </div>
                 </div>
                 <div>
@@ -175,7 +84,7 @@
             <a class="muted-btn" href="#header">back to top</a>
         </div>
         <div id="gallery" class="section">
-            <h4>05</h4>
+            <h4>03</h4>
             <h1>Gallery</h1>
             <div id="gallery-grid">
                 <div class="column">
@@ -202,14 +111,14 @@
             <a class="muted-btn" href="#header">back to top</a>
         </div>
         <div id="contact" class="section">
-            <h4>06</h4>
+            <h4>04</h4>
             <h1>Contact</h1>
             <a class="link-btn" href="https://github.com/soccer-robotics">github</a>
             <a class="link-btn" href="https://www.instagram.com/team_radiansr/">instagram</a>
             <a class="link-btn">email</a>
             <a class="muted-btn" href="#header">back to top</a>
             <br><br><br>
-            <p>Copyright 2022 Radian Robotics</p>
+            <p>Copyright 2023 Radian Robotics</p>
             <br>
         </div>
     </body>
