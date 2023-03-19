@@ -33,6 +33,7 @@ html, body {
     position: relative;
     background: url(assets/2023-background.png);
     background-size: cover;
+    background-attachment: fixed;
     box-shadow: 0px 0px 100px 100px inset rgb(243, 243, 243);
 }
 
@@ -213,6 +214,22 @@ h4 {
 #member-grid div img {
     width: 100%;
     border-radius: 4px 4px 0px 0px;
+}
+
+/* SPONSORS */
+#sponsor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+#sponsor-grid img {
+    width: 100%;
+    filter: grayscale(100%) opacity(0.5);
+    transition: 0.2s all;
+    cursor: pointer;
+}
+#sponsor-grid img:hover {
+    filter: grayscale(0%);
 }
 
 /* GALLERY */
