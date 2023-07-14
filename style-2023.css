@@ -1,7 +1,7 @@
 /* GENERAL */
 @font-face {
     font-family: Poppins;
-    src: url("assets/poppins.ttf");
+    src: url("assets/inter.ttf");
 }
 
 html, body {
@@ -59,16 +59,17 @@ html, body {
 
 .link-btn {
     color: #4D0153;
-    border: 2px solid #4D0153;
+    border: 1px solid #4D0153;
     padding: 10px;
     border-radius: 4px;
-    font-size: 20pt;
+    font-size: 16pt;
     margin-right: 10px;
     display: inline-block;
     text-decoration: none;
     transition: all 0.2s;
     margin-bottom: 20px;
     background: rgba(255,255,255,0.8);
+    box-shadow: 0px 0px 20px 0px rgba(150,150,150,0.1);
 }
 
 .link-btn:hover {
@@ -80,6 +81,7 @@ html, body {
 #header img {
     height: 80pt;
     border-radius: 5px;
+    box-shadow: 0px 0px 20px 0px rgba(150,150,150,0.5);
 }
 
 @media screen and (max-width: 768px) {
@@ -93,12 +95,12 @@ html, body {
     }
 
     #header img {
-        height: 60pt;
+        height: auto;
     }
 
     .link-btn {
         color: #4D0153;
-        border: 2px solid #4D0153;
+        border: 1px solid #4D0153;
         padding: 5px;
         font-size: 15pt;
         margin-right: 10px;
@@ -112,7 +114,7 @@ html, body {
     padding-left: 20%;
     padding-right: 20%;
     font-size: 16pt;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
 }
 
 h1 {
@@ -144,7 +146,7 @@ h4 {
 }
 
 .muted-btn {
-    color: #4D0153;
+    color: #dcdcdc;
     text-align: right;
     display: block;
     text-decoration: none;
@@ -162,6 +164,7 @@ h4 {
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 6px;
 }
 
 @media screen and (max-width: 768px) {
@@ -193,8 +196,9 @@ h4 {
 #member-grid > div {
     background-color: rgb(248, 248, 248);
     border-radius: 4px;
-    box-shadow: 0px 0px 0px 2px #4D0153;
+    border: 1px solid #4D0153;
     transition: 0.2s all;
+    box-shadow: 0px 0px 20px 0px rgba(150,150,150,0.1);
 }
 
 #member-grid div div {
@@ -237,6 +241,8 @@ h4 {
 .img-standard {
     width: 100%;
     border-radius: 6px;
+    border: 1px solid #4D0153;
+    box-shadow: 0px 0px 20px 0px rgba(150,150,150,0.1);
 }
 
 #gallery-grid {
@@ -256,6 +262,8 @@ h4 {
     vertical-align: middle;
     width: 100%;
     border-radius: 6px; 
+    border: 1px solid #4D0153;
+    box-shadow: 0px 0px 20px 0px rgba(150,150,150,0.1);
 }
 
 @media screen and (max-width: 800px) {

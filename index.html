@@ -5,23 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style-2023.css" type="text/css">
         <link rel="icon" href="assets/logo_square.png">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
         <title>Radian Robotics</title>
-        <meta name=description content="Soccer Robotics Team">
+        <meta name=description content="PHS/PSR Radian Soccer Robotics Team">
     </head>
     <body>
-        <script type="text/x-mathjax-config">
+        <!--<script type="text/x-mathjax-config">
             MathJax.Hub.Config({
               tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
             });
-        </script>
+        </script>-->
         <div id="header">
-            <h1><img src="assets/logo2.png"></h1>
+            <h1><img src="assets/logo2.png" style="max-width: 100%"></h1>
             <p>Princeton High School Robocup Junior Team<br>2022-2023</p>
             <div id="links">
                 <a class="link-btn" href="#overview">overview</a>
-                <a class="link-btn" href="#members">team</a>
                 <a class="link-btn" href="#sponsors">sponsors</a>
+                <a class="link-btn" href="#videos">videos</a>
+                <a class="link-btn" href="#members">team</a>
                 <a class="link-btn" href="#gallery">gallery</a>
                     <a class="link-btn" href="2022.html">2022</a>
                 <a class="link-btn" href="#contact">contact</a>
@@ -32,18 +35,16 @@
             <h1>Overview</h1>
             <p>
                 Hailing from Princeton, we intertwine the disciplines of computer science, mechanical engineering, and electrical
-                design to create autonomous soccer robots. In 2023, we won the national Robocup Junior
-                competition and will be representing the United States in the international competition in France.
+                design to create autonomous soccer robots. In 2023, we were selected as the United States representatives in the
+                International Robocup Junior competition, where we won second place overall.
             </p>
-            <!--<p>[Insert super flashy video here]</p>
-            <div class="video-container">
-                <iframe width="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-            </div>-->
             <img class="img-standard" src="assets/radian_team_2.jpg">
             <br><br>
-            <!--<a class="link-btn" href="assets/paper.pdf" target="_blank">Technical Paper</a>-->
+            <a class="link-btn" href="assets/Radian_2023_TDP.pdf" target="_blank">Technical Paper</a>
+            <a class="link-btn" href="assets/Radian_2023_Poster.pdf" target="_blank">Poster</a>
             <a class="muted-btn" href="#header">back to top</a>
         </div>
+        <hr>
         <div id="sponsors" class="section">
             <h4>02</h4>
             <h1>Sponsors</h1>
@@ -56,8 +57,21 @@
             </div>
             <a class="muted-btn" href="#header">back to top</a>
         </div>
-        <div id="members" class="section">
+        <hr>
+        <div id="videos" class="section">
             <h4>03</h4>
+            <h1>Videos</h1>
+            <p>Recap video from World Finals:<i> to be added</i></p>
+            <p>Recap video from U.S. Nationals</p>
+            <div class="video-container">
+                <iframe width="100%" src="https://www.youtube.com/embed/EF6Z8bxk-bg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <br><br>
+            <a class="muted-btn" href="#header">back to top</a>
+        </div>
+        <hr>
+        <div id="members" class="section">
+            <h4>04</h4>
             <h1>Team Members</h1>
             <div id="member-grid">
                 <div>
@@ -93,10 +107,12 @@
                     </div>
                 </div>
             </div>
+            <br><br>
             <a class="muted-btn" href="#header">back to top</a>
         </div>
+        <hr>
         <div id="gallery" class="section">
-            <h4>04</h4>
+            <h4>05</h4>
             <h1>Gallery</h1>
             <div id="gallery-grid">
                 <div class="column">
@@ -122,8 +138,9 @@
             </div>
             <a class="muted-btn" href="#header">back to top</a>
         </div>
+        <hr>
         <div id="contact" class="section">
-            <h4>04</h4>
+            <h4>06</h4>
             <h1>Contact</h1>
             <a class="link-btn" href="https://github.com/soccer-robotics">github</a>
             <a class="link-btn" href="https://www.instagram.com/team_radiansr/">instagram</a>
@@ -133,5 +150,17 @@
             <p>Copyright 2023 Radian Robotics</p>
             <br>
         </div>
+        <script>
+            // add aos animations to every element
+            for (let item of document.querySelectorAll(".section *")) {
+                item.setAttribute("data-aos", "zoom-in");
+                item.setAttribute("data-aos-duration", "200");
+            }
+            for (let item of document.querySelectorAll("#header > *")) {
+                item.setAttribute("data-aos", "zoom-out");
+                item.setAttribute("data-aos-duration", "1000");
+            }
+            AOS.init();
+        </script>
     </body>
 </html>
