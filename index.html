@@ -152,9 +152,10 @@
         </div>
         <script>
             // add aos animations to every element
-            for (let item of document.querySelectorAll(".section *")) {
+            for (let item of document.querySelectorAll(".section p, .section h1, .section h2, .section h3, .section h4, .section a, .section img, .section .video-container, .section .column > img, #header > *")) {
                 item.setAttribute("data-aos", "zoom-in");
                 item.setAttribute("data-aos-duration", "200");
+                item.setAttribute("data-aos-anchor-placement", "center-bottom");
             }
             for (let item of document.querySelectorAll("#header > *")) {
                 item.setAttribute("data-aos", "zoom-out");
